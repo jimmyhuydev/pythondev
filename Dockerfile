@@ -30,3 +30,9 @@ COPY . /app
 # Default command: start a shell for development
 CMD ["/bin/bash"]
 
+# Install Starship prompt
+RUN curl -fsSL https://starship.rs/install.sh | bash -s -- -y
+
+# Enable Starship for bash
+RUN echo 'eval "$(starship init bash)"' >> /root/.bashrc
+
