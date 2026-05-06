@@ -25,13 +25,15 @@ RUN pip install --upgrade pip && \
     pip install -r requirements.txt
 
 # Copy the rest of your project
-COPY . /app
+COPY hello /app
 
 # Default command: start a shell for development
 CMD ["/bin/bash"]
 
 # Install Starship prompt
-RUN curl -fsSL https://starship.rs/install.sh | bash -s -- -y
+RUN curl -fsSL https://starship.rs/install.sh | sh -s -- -y
+
+RUN cd /app
 
 # Enable Starship for bash
 RUN echo 'eval "$(starship init bash)"' >> /root/.bashrc
